@@ -27,7 +27,7 @@ spring:
   session:
     store-type: none      
   profiles:
-    active: dev
+    active: prod
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/acount_db
