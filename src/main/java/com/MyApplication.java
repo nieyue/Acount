@@ -7,12 +7,11 @@ import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
-import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 @SpringBootApplication
 @Configuration
-@EnableRedisHttpSession
+//@EnableRedisHttpSession
 public class MyApplication extends WebMvcConfigurerAdapter {
 	public static void main(String[] args) {
 		SpringApplication.run(MyApplication.class,args);
@@ -22,6 +21,7 @@ public class MyApplication extends WebMvcConfigurerAdapter {
 	  public void addCorsMappings(CorsRegistry registry) {
 	    registry.addMapping("/**").allowedOrigins("*").allowCredentials(true).allowedMethods("POST","GET", "OPTIONS", "DELETE").allowedHeaders("x-requested-with");
 	  }
+
 	@Bean
 	public EmbeddedServletContainerCustomizer  containerCustomizer() {
 

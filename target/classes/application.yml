@@ -5,7 +5,7 @@ logging:
       springframework:
         web: DEBUG
       hibernate: ERROR
- 
+
 #mybatis配置
 mybatis: 
   #check-config-location: true
@@ -17,6 +17,7 @@ mybatis:
     useColumnLabel: true
     useGeneratedKeys: true
     
+    
 spring:
   #mvc:
     #date-format: yyyy-MM-dd HH:mm:ss
@@ -25,22 +26,23 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss 
     time-zone:  GMT+8
   session:
-    store-type: none      
+    store-type: redis      
   profiles:
-    active: prod
+    active: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/acount_db
+    #url: jdbc:mysql://114.215.70.214:3306/acount_db
     username: root
     password: liliu
   redis:
-    name: master
-    host: 120.25.228.28
+    #host: 120.25.228.28
+    host: 118.190.133.146
     password: liliu
     port: 6379 
-    timeout: 10000
-    maxTotal: 600
-    maxIdle: 300
-    maxWaitMillis: 1000
-    testOnBorrow: true
-    testOnReturn: true
+    timeout: 3000
+    pool:
+      min-idle: 100
+      max-idle: 300
+      max-active: 800
+      

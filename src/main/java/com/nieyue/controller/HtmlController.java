@@ -24,6 +24,10 @@ public class HtmlController {
 	 */
 	@RequestMapping(value={"/index","/"})
 	public ModelAndView index(Model model,HttpSession session){
+		System.err.println(session.getAttribute("userSessionId"));
+		if(session.getAttribute("userSessionId")==null||!session.getAttribute("userSessionId").equals(session.getId())){
+			session.setAttribute("userSessionId", session.getId());
+		}
 		model.addAttribute("sessionId", session.getId());
 		return new ModelAndView("index");
 	}
